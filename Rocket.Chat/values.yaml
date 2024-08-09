@@ -1,0 +1,21 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: registry.rocket.chat/rocketchat/rocket.chat
+  tag: 6.8.4  # You can use different versions. See: https://github.com/RocketChat/Rocket.Chat/releases
+
+mongodb:
+  enabled: true  # A single mongodb pod is deployed. Disabling this could cause some wired errors.
+  auth:
+    passwords:
+      - rocketchatPASSWORD                # You can change to your own password
+    rootPassword: rocketchatROOTPASSWORD  # You can change to your own root password
+  image:
+    debug: false
+  persistence:
+    enabled: true
+
+microservices:
+  enabled: false  # This must be set to false for a monolithic deployment
+
+ingress:
+  enabled: false
